@@ -9,11 +9,23 @@ $(document).ready(function(){
         $("#pig").hide();
     });
     //add a third button that makes the pig exit to the right when the new button is clicked
-
+    $("#flyPig").click(function(){
+        $("#pig").animate({left: '5000px'});
+    });
     //add a new event handler that causes the pig to slide up and down 3 times when the pig is clicked
     //(hint: use a loop and relative values (-= or +=))
-
-    //STRETCH add a new pig that flies away once the first pig has exited the screen.
+    $("#pig").click(function(){
+        for (i=0; i<3; i++) {
+            $("#pig").animate({top: '+=10px'});
+            $("#pig").animate({top: '-=10px'});
+        }
+    });
+        //STRETCH add a new pig that flies away once the first pig has exited the screen.
     //(hint: You will have to put the animation of the second pig inside a callback function.)
+    $("#pig").dblclick(function(){
+        $("#pig").animate({left: '5000px'}, function(){
+            $("#rightpig").animate({left: '5000px'});
+        });
+    });
 
 });
